@@ -1,0 +1,137 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>野牛</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script type="text/javascript" src="./src/jquery.min.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="./src/openinstall.js"></script>
+    <link rel="stylesheet" href="./src/style.css">
+    <style type="text/css">
+        * {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        #downloadButton {
+            background: url("./src/download.jpg") no-repeat;
+            background-size: 100% 100%;
+            text-align: center;
+        }
+
+        .udid-content {
+            margin-top: 40%;
+        }
+
+        .guid {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            background: rgba(0, 0, 0, .8);
+            text-align: center;
+            padding: 0 0.4rem;
+            z-index: 99;
+            display: none;
+            box-sizing: border-box;
+        }
+
+        .guid-1 {
+            position: relative;
+            padding: .4rem 0.2rem 0rem 0.6rem;
+        }
+
+        .guid-1 img {
+            margin-left: -0.5rem;
+            margin-top: 40px;
+        }
+
+        .guid img {
+            max-width: 90%;
+        }
+
+        .guid-1 .guid-close {
+            position: absolute;
+            right: -0.2rem;
+            top: .3rem;
+            width: 2.6rem;
+        }
+
+        .guid-2 {
+            margin-top: -0.4rem;
+        }
+
+        .guid-bottom {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .guid-3 img {
+            width: 40%;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .guid-4 img {
+            width: 40%;
+            margin: 0 auto;
+            display: block;
+        }
+    </style>
+    <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+<div class="content channel-page" style="height:100%;" id="downloadButton">
+    <div class="page-index">
+    </div>
+</div>
+<div class="guid max_width" id="f_close" style="display: block;">
+    <div class="guid-1">
+        <img src="./src/guid-1.png" alt="">
+        <img src="./src/guid-close.png" class="guid-close" alt="" onclick="close_f();">
+    </div>
+    <div class="guid-2">
+        <img src="./src/guid-2.png" alt="">
+    </div>
+    <div class="guid-bottom">
+        <div class="guid-3">
+            <img src="./src/guid-3.png" alt="">
+        </div>
+        <div class="guid-4">
+            <img src="./src/guid-4.gif" alt="">
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    var data = OpenInstall.parseUrlParams();
+    new OpenInstall({
+        appKey : "ozunv4",
+        onready : function() {
+            var m = this, button = document.getElementById("downloadButton");
+            button.style.visibility = "visible";
+            button.onclick = function() {
+                m.schemeWakeup();
+                m.wakeupOrInstall();
+                return false;
+            }
+        }
+    }, data);
+
+    function close_f() {
+        document.getElementById("f_close").style.display = "none";
+    }
+
+    function isSafari() {
+        var ua = window.navigator.userAgent.toLowerCase();
+        return ua.indexOf("safari") != -1;
+    }
+</script>
+<div id="cli_dialog_div"></div>
+</body>
+</html>
